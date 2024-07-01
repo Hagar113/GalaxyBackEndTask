@@ -58,7 +58,7 @@ namespace DataAccess.Repo
         }
         public async Task<bool> checkIfEmailOrPhoneExists(string _email, string _phone)
         {
-            return await _context.users.AnyAsync(z => z.Email == _email || z.Mobile == _phone);
+            return await _context.users.AnyAsync(h=> h.Email == _email || h.Mobile == _phone);
         }
         public string CheckPasswordStrength(string _password)
         {
@@ -82,7 +82,7 @@ namespace DataAccess.Repo
             try
             {
                 var user = await _context.users
-                            .FirstOrDefaultAsync(z => z.Email == loginRequest.email_phone || z.Mobile == loginRequest.email_phone);
+                            .FirstOrDefaultAsync(h=> h.Email == loginRequest.email_phone || h.Mobile == loginRequest.email_phone);
 
                 if (user == null)
                 {

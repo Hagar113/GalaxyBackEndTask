@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Models.DTOs;
+using Models.DTOs.Request;
+using Models.DTOs.Response;
+using Models.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +12,11 @@ namespace DataAccess.IRepo
 {
     public interface IAuthenticationRepo
     {
+        Task<bool> UserRegister(RegisterRequest loginRequest);
+        bool CheckRequestedObj(RegisterRequest loginRequest);
+        Task<bool> checkIfEmailOrPhoneExists(string _email, string _phone);
+        string CheckPasswordStrength(string _password);
+        Task<LoginResponse> Login(LoginRequest loginRequest);
+        Task<int> CreateUser(RegisterRequest user);
     }
 }

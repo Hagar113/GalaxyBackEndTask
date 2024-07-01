@@ -1,4 +1,6 @@
+using GalaxyBackEndTask.ServiceBinding;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using static DataAccess.ApplicationContext.ApplicationDBContext;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(op =>
 op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+builder.Services.InjectServices();
 
 var app = builder.Build();
 

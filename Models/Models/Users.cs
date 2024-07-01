@@ -13,6 +13,8 @@ namespace Models.Models
         public string Email { get; set; }
         public string passWord { get; set; }
         public string Mobile { get; set; }
+        public bool? isActive { get; set; }
+        public string? token { get; set; }
 
     }
 }

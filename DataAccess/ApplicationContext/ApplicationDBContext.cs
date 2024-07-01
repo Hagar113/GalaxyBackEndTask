@@ -17,6 +17,10 @@ namespace DataAccess.ApplicationContext
 
             }
             public DbSet<Users> users { get; set; }
+            protected override void OnModelCreating(ModelBuilder modelBuilder)
+            {
+              
+            }
         }
 
     }
